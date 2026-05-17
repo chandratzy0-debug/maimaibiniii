@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday</title>
+  <title>Happy Birthday MyBini</title>
 
   <style>
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family: "Courier New", monospace;
+      font-family:"Courier New", monospace;
     }
 
     body{
@@ -78,7 +78,7 @@
     .final h1{
       color:white;
       margin-bottom:20px;
-      font-size:2.4rem;
+      font-size:2rem;
     }
 
     .final p{
@@ -87,9 +87,45 @@
       margin-bottom:15px;
     }
 
+    .photo{
+      width:180px;
+      border-radius:18px;
+      margin:20px 0;
+      border:2px solid #00ffb3;
+      box-shadow:0 0 20px rgba(0,255,179,0.3);
+    }
+
+    .btn{
+      margin-top:15px;
+      padding:12px 24px;
+      border:none;
+      border-radius:999px;
+      background:#00ffb3;
+      color:#050816;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    .hidden-message{
+      margin-top:20px;
+      opacity:0;
+      transition:0.5s;
+      color:#fff;
+    }
+
+    .hidden-message.show{
+      opacity:1;
+    }
+
     .heart{
       font-size:2rem;
       color:#ff5c8a;
+      margin-top:20px;
       animation:pulse 1.5s infinite;
     }
 
@@ -103,6 +139,11 @@
       margin-top:20px;
       opacity:0.7;
       font-size:0.9rem;
+    }
+
+    audio{
+      margin-top:20px;
+      width:100%;
     }
   </style>
 </head>
@@ -135,25 +176,51 @@
 
   <div class="container final hidden" id="finalScreen">
 
-    <h1>duarrrr, Happy Level up dayyy, MyBiniiii 🤍</h1>
+    <h1>> duarrrr, Happy Level Up Dayyy MyBiniiii 🤍</h1>
+
+    <img 
+      src="https://i.imgur.com/IN3oATI.jpeg"
+      alt="foto"
+      class="photo"
+    />
 
     <p>
-      Hari ini umur bertambah 1, berkurang juga 1
-      semoga selalu sehat, semakin dewasa, semoga semua harapan menjadi kenyataan,
+      Hari ini umurmu bertambah satu,
+      berkurang satu juga.
+      Semoga selalu sehat, semakin dewasa,
+      semua harapanmu pelan-pelan jadi kenyataan,
       dan semoga tahun ini lebih banyak bahagianya daripada capenya.
     </p>
 
     <p>
-      terimakasii sudah terlahir ke dunia, juga hadir di hidupku
-      semakin kuat, meskipun selama ini dikuat kuatin.
-      terimakasiiii sudah selalu bertahan.
+      Terimakasii sudah terlahir ke dunia,
+      dan hadir di hidupku.
+      Semoga kamu semakin kuat,
+      meskipun selama ini sering dikuat-kuatin sendiri.
     </p>
+
+    <p>
+      Terimakasiiii karena udah selalu bertahan sejauh ini 🤍
+    </p>
+
+    <button onclick="showMessage()" class="btn">
+      Open Secret Message
+    </button>
+
+    <div id="secretMessage" class="hidden-message">
+      Dari sekian banyak sinyal di dunia,
+      ternyata kamu yang paling berhasil nyampe ke hati 🤍
+    </div>
 
     <div class="heart">❤</div>
 
     <div class="small">
-      from: suami dari masa depan
+      status: connected without interruption
     </div>
+
+    <audio autoplay loop controls>
+      <source src="ssstik.io_1779037994559.mp3" type="audio/mp3">
+    </audio>
 
   </div>
 
@@ -162,6 +229,12 @@
       document.getElementById("bootScreen").classList.add("hidden");
       document.getElementById("finalScreen").classList.remove("hidden");
     }, 5500);
+
+    function showMessage(){
+      document
+        .getElementById("secretMessage")
+        .classList.add("show");
+    }
   </script>
 
 </body>
