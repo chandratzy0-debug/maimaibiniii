@@ -195,22 +195,14 @@
 
 <div class="container final hidden" id="finalScreen">
 
-  <h1>> duarrrr, Happy Level Up Dayyy MyBiniiii 🤍</h1>
+  <h1>> Happy Level Up Dayyy MyBini 🤍</h1>
 
   <img src="https://i.imgur.com/IN3oATI.jpeg" class="photo"/>
 
-  <p>
-    Hari ini umurmu bertambah satu, berkurang satu juga.
-    Semoga selalu sehat, semakin dewasa, dan bahagia terus.
-  </p>
+  <p>Hari ini umurmu bertambah satu, semoga bahagia terus.</p>
+  <p>Terimakasih sudah bertahan sejauh ini 🤍</p>
 
-  <p>
-    Terimakasih sudah bertahan sejauh ini 🤍
-  </p>
-
-  <button onclick="showMessage()" class="btn">
-    Open Secret Message
-  </button>
+  <button onclick="showMessage()" class="btn">Open Secret Message</button>
 
   <div id="secretMessage" class="hidden-message">
     Dari sekian banyak kebaikan, ketemu kamu adalah yang paling aku syukuri 🤍
@@ -220,25 +212,30 @@
 
   <div class="small">status: connected without interruption</div>
 
-  <audio autoplay loop controls>
-    <source src="ssstik.io_1779037994559.mp3.mpeg" type="audio/mp3">
+  <audio id="bgm" loop controls>
+    <source src="ssstik.io_1779037994559.mp3.mpeg" type="audio/mpeg">
   </audio>
 
 </div>
 
 <script>
-  // switch screen
+  const audio = document.getElementById("bgm");
+
   setTimeout(() => {
     document.getElementById("bootScreen").classList.add("hidden");
     document.getElementById("finalScreen").classList.remove("hidden");
+
+    audio.play().catch(() => {});
   }, 5500);
 
-  // secret message
   function showMessage(){
     document.getElementById("secretMessage").classList.add("show");
   }
 
-  // heart rain
+  document.addEventListener("click", () => {
+    audio.play();
+  }, { once: true });
+
   setInterval(() => {
     const heart = document.createElement("div");
     heart.classList.add("heart-rain");
@@ -251,7 +248,6 @@
 
     setTimeout(() => heart.remove(), 5000);
   }, 300);
-
 </script>
 
 </body>
